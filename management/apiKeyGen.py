@@ -31,8 +31,8 @@ def main():
     opts = ap.parse_args()
     target = 'err'
     customer = ''
-
-        if opts.diags:
+    
+    if opts.diags:
         send_reqeust = True
         target = "diags"
     elif opts.mtok:
