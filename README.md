@@ -20,6 +20,10 @@ provisioning CLI tool.
 - `dynamodb-wrapper/` - lambda code wrapping DynamoDB (provides a 'schema') housing customers
 - `eb-wrapper/` - lambda code listening for DDB streams and creating relevant events
 
+## TODO
+
+Add EventBridge rules and API GW configuration 
+
 ## Architecture
 
 ![plot](./images/diag-flow-components.png?raw=true)
