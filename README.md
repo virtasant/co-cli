@@ -14,8 +14,11 @@ provisioning CLI tool.
 
 ## Project structure
 
+- `images/` - 'png's used in the README files
 - `management/` - Python script used for provisioning new users
     - `diag-api-key-generator/` - lambda backend for the 'management' script
+- `dynamodb-wrapper/` - lambda code wrapping DynamoDB (provides a 'schema') housing customers
+- `eb-wrapper/` - lambda code listening for DDB streams and creating relevant events
 
 ## Architecture
 
