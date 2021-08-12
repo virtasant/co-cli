@@ -4,23 +4,12 @@ import logging
 from mapper import Mapper
 from api_key_gen import ApiKeyManager
 
-###########################################################
+##########################################
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)  
 
-###########################################################
-
-PROVISION = 'provision'
-UNPROVISION = 'unprovision'
-CUSTOMERS = 'customers'
-CUSTOMER = 'customer'
-DIAGS = 'diags'
-CUSTOMER_TOKENS = 'ctok' 
-MASTER_TOKEN = 'mtok'
-CUSTOMER_STATUS = 'cstatus'
-
-###########################################################
+##########################################
 
 def lambda_handler(event, context):
     
@@ -33,8 +22,20 @@ def lambda_handler(event, context):
         'body': json.dumps(response) if response else ''
     }
 
-###########################################################
-###########################################################
+###################################################################     
+###################################################################     
+
+PROVISION = 'provision'
+UNPROVISION = 'unprovision'
+CUSTOMERS = 'customers'
+CUSTOMER = 'customer'
+DIAGS = 'diags'
+CUSTOMER_TOKENS = 'ctok' 
+MASTER_TOKEN = 'mtok'
+CUSTOMER_STATUS = 'cstatus'
+
+###################################################################     
+###################################################################     
 
 class RequestProcessor():
 
@@ -42,9 +43,9 @@ class RequestProcessor():
         manager = ApiKeyManager(mapper)
         target = mapper.get('target')
         return self.targets().get(target,self.error)(manager)
-      
-    #########################
-        
+
+    #################################################### 
+            
     def targets(self):
         
         return {
@@ -58,9 +59,8 @@ class RequestProcessor():
             CUSTOMER_STATUS : self.cstatus
         }
 
-
-    #########################
-        
+    #################################################### 
+    
     def provision(self, manager):
         logger.info("target: provision")
         return manager.provision_user()
@@ -97,5 +97,5 @@ class RequestProcessor():
         logger.info("target: error")
         return {}
     
-####################################################     
-
+###################################################################     
+###################################################################     
