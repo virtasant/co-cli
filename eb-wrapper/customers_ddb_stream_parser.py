@@ -5,7 +5,7 @@ import typing
 import decimal
 import distutils
 
-from ddb_stream_parser import DDBStreamParser, DecimalEncoder, DecimalDecoder
+from ddb_stream_parser import DDBStreamParser, DecimalEncoder
 from boto3.dynamodb.types import TypeDeserializer, TypeSerializer
 
 class CustomersDDBStreamParser(DDBStreamParser):
