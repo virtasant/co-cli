@@ -33,32 +33,32 @@ def main():
     customer = ''
     
     if opts.diags:
-        send_reqeust = True
+        send_request = True
         target = "diags"
     elif opts.mtok:
-        send_reqeust = True
+        send_request = True
         target = "mtok"
     elif opts.customers:
-        send_reqeust = True
+        send_request = True
         target = "customers"
     elif opts.ctok:
-        send_reqeust = True
+        send_request = True
         target = "ctok"
         customer = opts.ctok
     elif opts.cstatus:
-        send_reqeust = True
+        send_request = True
         target = "cstatus"
         customer = opts.cstatus
     elif opts.customer:
-        send_reqeust = True
+        send_request = True
         target = "customer"
         customer = opts.customer
     elif opts.provision:
-        send_reqeust = True
+        send_request = True
         target = "provision"
         customer = opts.provision
     elif opts.unprovision:
-        send_reqeust = True
+        send_request = True
         target = "unprovision"
         customer = opts.unprovision
 
