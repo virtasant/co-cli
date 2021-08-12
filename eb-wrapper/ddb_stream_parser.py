@@ -1,3 +1,7 @@
+import json
+
+###################################################################
+
 class DDBStreamParser():
 
     def __init__(self):
@@ -22,6 +26,7 @@ class DDBStreamParser():
         return dict_diff(old_image, new_image)
         
     def process(self, event):
+        print(json.dumps(event))
     	try:
     		for record in event['Records']:
     			dynamodb = record['dynamodb']
@@ -35,6 +40,7 @@ class DDBStreamParser():
     		print(e)
         
 ###################################################################
+###################################################################
 
 def dict_diff(a, b):
     d = {}
@@ -45,7 +51,6 @@ def dict_diff(a, b):
 ###################################################################
 ###################################################################
 
-import json
 import decimal
 
 ###################################################################
@@ -60,6 +65,8 @@ class DecimalEncoder(json.JSONEncoder):
         if isinstance(obj, decimal.Decimal):
             return str(obj)
         return obj
+
+###################################################################
 
 class DecimalDecoder(json.JSONDecoder):
     def __init__(self, *args, **kwargs):
