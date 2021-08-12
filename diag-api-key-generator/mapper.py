@@ -31,9 +31,6 @@ class Mapper():
                 message = r0.get('s3')
                 self.validate_s3(message)
                 return self.update_s3_message(message)
-                
-        elif "lambda_arn" in event:
-            self.validate_sf(event)
         else:
             self.validate_json(event)
 
@@ -41,35 +38,15 @@ class Mapper():
         
     #########
     
-    def is_valid(self):
-        return self.a_is_valid
+    def is_valid(self):                 return self.a_is_valid
 
-    #########
+    # this is where you can do custom validation if you want
 
-    def validate_s3(self, message):
-        self.a_is_valid = True
-
-    #########
-
-    def validate_sns(self, message):
-        self.a_is_valid = True
-        
-        # this is where you can validate a JWT for instance
-
-    #########
-
-    def validate_sf(self, event):
-        self.a_is_valid = True
-
-    #########
-
-    def validate_http(self, event):
-        self.a_is_valid = True
-
-    #########
-
-    def validate_json(self, event):
-        self.a_is_valid = True
+    def validate_s3(self, message):     self.a_is_valid = True
+    def validate_sns(self, message):    self.a_is_valid = True
+    def validate_sf(self, event):       self.a_is_valid = True
+    def validate_http(self, event):     self.a_is_valid = True
+    def validate_json(self, event):     self.a_is_valid = True
 
     #########
 
@@ -91,30 +68,5 @@ class Mapper():
         else:
             return self.a_payload.get(param, alternate)
 
-    #########
-
-    def event(self): 
-        return self.a_event
-
-    #########
-
-    def payload(self): 
-        return self.a_payload
-    
-###########################################################################
-###########################################################################
-
-def unflatten(payload):
-    result = dict()
-    for k, v in payload.items():   
-        d = resultDict
-        parts = key.split(".")
-        for part in parts[:-1]:
-            if part not in d: d[part] = dict()
-            d = d[part]
-        d[parts[-1]] = value
-    return resultDict
-    
-    
 ###########################################################################
 ###########################################################################
