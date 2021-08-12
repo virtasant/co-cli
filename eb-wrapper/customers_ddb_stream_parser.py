@@ -5,7 +5,7 @@ import typing
 import decimal
 import distutils
 
-from ddb_stream_parser import DDBStreamParser
+from ddb_stream_parser import DDBStreamParser, DecimalEncoder, DecimalDecoder
 from boto3.dynamodb.types import TypeDeserializer, TypeSerializer
 
 class CustomersDDBStreamParser(DDBStreamParser):
@@ -221,27 +221,3 @@ def all_regions():
     
 ##############################################################################
 ##############################################################################
-            
-class DecimalEncoder(json.JSONEncoder): 
-    def default(self, obj):
-        if isinstance(obj, decimal.Decimal):
-            return str(obj)
-        return super(DecimalEncoder, self).default(obj)
-        
-    def to_string(self, obj):
-        if isinstance(obj, decimal.Decimal):
-            return str(obj)
-        return obj
-
-class DecimalDecoder(json.JSONDecoder):
-    def __init__(self, *args, **kwargs):
-        json.JSONDecoder.__init__(self, object_hook=self.object_hook, *args, **kwargs)
-
-    def object_hook(self, obj):
-        if '_type' not in obj:
-            return obj
-        type = obj['_type']
-        if type == 'decimal':
-            return decimal.Decimal(obj['value'])
-        return obj        
-                    
