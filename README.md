@@ -1,3 +1,3 @@
 # co-analysis
 
-![plot](./images/diag-flow-DEMO-E2E-Testing.png)
+![plot](./images/diag_flow_high_level.png)
