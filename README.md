@@ -8,33 +8,14 @@ provisioning CLI tool.
 - API:
   - API Gateway
   - Lambda function Python
-  - GraphQL interface
-- Identity management: AWS Cognito
+  - RESTful interface
 - Database:
-  - DBMS: MySQL (Aurora MySQL)
-  - Interface: SQLAlchemy declarative
-  - Migrations: Alembic
-- Deploy: AWS CDK
-
+  - DBMS: DynamoDB
 
 ## Project structure
 
-- `api/` - Lambda function code for the API
-  - `schema/` - GraphQL definitions
-  - `scripts/` - General purpose scripts that require the api python module
-  - `utils/` - Functionality to support the API requests
-- `email_service/` - Lambda function to handle emails
-- `deploy/` - CDK deploy data
-
-
-## Running unit tests
-
-All test files are located in `tests/` directory inside each lambda service.
-
-To run them all use:
-
-    python3 -m unittest discover -v
-
+- `management/` - Python script used for provisioning new users
+- `schema/` - GraphQL definitions
 
 ## Architecture
 
