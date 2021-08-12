@@ -15,11 +15,8 @@ provisioning CLI tool.
 ## Project structure
 
 - `management/` - Python script used for provisioning new users
-- `schema/` - GraphQL definitions
+    - `diag-api-key-generator/` - lambda backend for the 'management' script
 
 ## Architecture
 
-![Infrastructure diagram](/deploy/assets/infra_diagram.png?raw=true)
-
-
-![plot](./images/diag_flow_high_level.png)
+![plot](./images/diag-flow-components.png?raw=true)
